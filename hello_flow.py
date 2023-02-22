@@ -1,13 +1,14 @@
 import sys
 import prefect
 from prefect import flow
+import time
 
 
 @flow(log_prints=True)
 def hi():
-    print("Hi from Prefect! 🤗")
-    print(f"Prefect Version: {prefect.__version__}")
-    print(f"Python Version: {sys.version}")
+    for i in range(30):
+        print(f"{i}th minute...")
+        time.sleep(60)
 
 
 if __name__ == "__main__":

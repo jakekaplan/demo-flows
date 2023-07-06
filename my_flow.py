@@ -4,7 +4,9 @@ import time
 
 @flow
 def my_flow():
-    time.sleep(30)
+    print("I will sleep for 10 seconds.")
+    time.sleep(10)
+    print("I'm done!")
 
 
 if __name__ == '__main__':

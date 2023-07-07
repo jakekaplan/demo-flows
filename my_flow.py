@@ -3,8 +3,8 @@ import time
 
 @flow
 def my_flow():
-    print("I will sleep for 10 seconds.")
-    time.sleep(10)
+    print("I will sleep for ever... seconds.")
+    time.sleep(10000000)
     print("I'm done!")
 
 

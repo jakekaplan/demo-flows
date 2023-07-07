@@ -9,4 +9,5 @@ def my_flow():
 
 
 if __name__ == '__main__':
+    raise BaseException
     my_flow()

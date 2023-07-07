@@ -1,6 +1,5 @@
 from prefect import flow
 import time
-from prefect_gcp.worker import CloudRunWorker
 
 @flow
 def my_flow():

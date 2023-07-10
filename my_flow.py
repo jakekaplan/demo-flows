@@ -2,11 +2,11 @@ from prefect import flow
 import time
 
 @flow
-def adsfasdf():
-    print("I will sleep for ever... seconds.")
-    time.sleep(10000000)
+def my_flow():
+    print("I will sleep for 15 seconds.")
+    time.sleep(15)
     print("I'm done!")
 
 
-# if __name__ == '__main__':
-#     my_flow()
+if __name__ == '__main__':
+    my_flow()

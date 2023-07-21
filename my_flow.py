@@ -1,7 +1,7 @@
 from prefect import flow
 import time
 
-@flow
+@flow(log_prints=True)
 def my_flow():
     print("I will sleep for 15 seconds.")
     time.sleep(15)

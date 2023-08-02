@@ -1,10 +1,11 @@
 from prefect import flow
 import time
-from prefect.cli.deployment import run
+
+
 @flow(log_prints=True)
-def my_flow():
-    print("I will sleep for 60 seconds.")
-    time.sleep(60)
+def my_flow(n: int = 15):
+    print(f"I will sleep for {n} seconds.")
+    time.sleep(n)
     print("I'm done!")
 
 

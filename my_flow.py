@@ -4,9 +4,8 @@ import time
 
 @flow(log_prints=True)
 def my_flow(n: int = 15):
-    print(f"I will sleep for {n} seconds.")
-    time.sleep(n)
-    print("I'm done!")
+    import sys
+    print(sys.executable)
 
 
 if __name__ == '__main__':

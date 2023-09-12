@@ -7,7 +7,7 @@ from prefect.runtime import flow_run
 @flow(log_prints=True)
 def my_flow():
     print(f"Starting flow_run: {flow_run.name}")
-    time.sleep(200)
+    time.sleep(15)
     print(f"Finished flow_run: {flow_run.name}")
 
 

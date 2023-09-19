@@ -1,20 +1,27 @@
-import time
+from prefect import task, flow
+from prefect.deployments.deployments import Deployment
+from prefect.task_runners import SequentialTaskRunner
+import asyncio
 
-from prefect import flow
-from prefect.runtime import flow_run
-from prefect_aws.workers.ecs_worker import ECSWorker
+@task(persist_result=True)
+def task_1():
+    print("success!")
+
+@task(persist_result=True)
+def task_2():
+    raise RuntimeError
+
+@task(persist_result=True)
+def task_3():
+    print("success!")
 
 
-
-@flow(log_prints=True)
-def my_flow():
-    x = []
-    while True:
-        x.append(1)
-    # print(f"Starting flow_run: {flow_run.name}")
-    # time.sleep(15)
-    # print(f"Finished flow_run: {flow_run.name}")
+@flow(task_runner=SequentialTaskRunner(), persist_result=True)
+def demo_restart_issue():
+    task_1()
+    task_2()
+    task_3()
 
 
-if __name__ == '__main__':
-    my_flow()
+if __name__ == "__main__":
+    flow()

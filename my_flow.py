@@ -1,13 +1,14 @@
 from prefect import task, flow
 from prefect.deployments.deployments import Deployment
 from prefect.task_runners import SequentialTaskRunner
+from prefect.engine import orchestrate_task_run
 import asyncio
 
 @task(persist_result=True)
 def task_1():
     print("success!")
 
-@task(persist_result=True)
+@task(persist_result=True, cache_key_fn=lambda *args, **kwargs: "task_2")
 def task_2():
     raise RuntimeError
 

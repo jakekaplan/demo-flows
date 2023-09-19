@@ -1,28 +1,13 @@
-from prefect import task, flow
-from prefect.deployments.deployments import Deployment
-from prefect.task_runners import SequentialTaskRunner
-from prefect.engine import orchestrate_task_run
-import asyncio
+import time
 
-@task(persist_result=True)
-def task_1():
-    print("success!")
-
-@task(persist_result=True, cache_key_fn=lambda *args, **kwargs: "task_2")
-def task_2():
-    raise RuntimeError
-
-@task(persist_result=True)
-def task_3():
-    print("success!")
+from prefect import flow
+from prefect.runtime import flow_run
+@flow(log_prints=True)
+def my_flow():
+    print(f"Starting flow run: {flow_run.name}")
+    time.sleep(15)
+    print(f"Finishing flow run: {flow_run.name}")
 
 
-@flow(task_runner=SequentialTaskRunner(), persist_result=True)
-def demo_restart_issue():
-    task_1()
-    task_2()
-    task_3()
-
-
-if __name__ == "__main__":
-    flow()
+if __name__ == '__main__':
+    my_flow()

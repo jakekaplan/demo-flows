@@ -10,7 +10,7 @@ def task2():
     raise ValueError("fail")
 
 
-@flow(retries=2, log_prints=True)
+@flow(log_prints=True)
 def run_tasks():
     task1()
     task2()

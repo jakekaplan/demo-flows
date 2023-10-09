@@ -8,8 +8,9 @@ from prefect.runtime import deployment
 
 @task
 def my_task():
-    time.sleep(30)
+    time.sleep(10)
     raise ValueError("This is a test")
+
 
 @flow
 def my_flow():

@@ -8,7 +8,7 @@ from prefect.runtime import deployment
 
 @task
 def my_task():
-    time.sleep(9999999999)
+    time.sleep(99999)
     # raise ValueError("This is a test")
 
 

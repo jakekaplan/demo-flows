@@ -1,18 +1,19 @@
 import sys
 import time
 
-from prefect import flow
+from prefect import flow, task
 from prefect.runtime import flow_run
 from prefect.runtime import deployment
 
 
+@task
+def my_task():
+    time.sleep(30)
+    raise ValueError("This is a test")
 
-@flow(log_prints=True)
+@flow
 def my_flow():
-    print(f"Starting flow run: {flow_run.name}")
-    print(f"Deployment {deployment.name}")
-    time.sleep(10)
-    print(f"Finishing flow run: {flow_run.name}")
+    my_task()
 
 
 if __name__ == '__main__':

@@ -8,8 +8,8 @@ from prefect.client.orchestration import get_client
 
 @task
 def my_task():
-    # time.sleep(99999)
-    raise ValueError("This is a test")
+    time.sleep(99999)
+    # raise ValueError("This is a test")
 
 
 @flow

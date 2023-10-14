@@ -5,7 +5,9 @@ from prefect import flow, task
 
 @task
 def my_task():
-    time.sleep(15)
+    import sys
+    print(sys.version)
+
 
 @flow
 def my_flow():

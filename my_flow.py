@@ -1,17 +1,14 @@
 import time
 
 from prefect import flow, task
-
-
-@task(log_prints=True)
-def my_task():
-    import sys
-    print(sys.version)
-
+import os
 
 @flow(log_prints=True)
 def my_flow():
-    my_task()
+    test1 = os.getenv("TEST1", "test1 not set")
+    print(test1)
+    test2 = os.getenv("TEST2", "test2 not set")
+    print(test2)
 
 
 if __name__ == '__main__':

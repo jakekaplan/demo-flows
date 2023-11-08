@@ -3,7 +3,7 @@ import time
 
 @flow(log_prints=True)
 def my_flow():
-    time.sleep(1000000)
+    time.sleep(100000)
 
 
 if __name__ == '__main__':

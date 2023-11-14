@@ -1,14 +1,27 @@
-from prefect import flow, Flow
-import time
+from prefect import flow
+from prefect.runtime import flow_run
+
 
 @flow(log_prints=True)
 def my_flow():
-    time.sleep(1)
+    print(f"I'm in flow: {flow_run.name}")
 
 
 if __name__ == '__main__':
     my_flow()
+
     # flow.from_source(
     #     "https://github.com/jakekaplan/demo-flows.git",
     #     entrypoint="my_flow.py:my_flow"
-    # ).deploy(name="jake-mex-deployment", work_pool_name="prefect-managed")
+    # ).serve(
+    #     name="jake-serve",
+    #     interval=15
+    # )
+
+    # flow.from_source(
+    #     "https://github.com/jakekaplan/demo-flows.git",
+    #     entrypoint="my_flow.py:my_flow"
+    # ).deploy(
+    #     name="jake-mex-deployment",
+    #     work_pool_name="prefect-managed"
+    # )

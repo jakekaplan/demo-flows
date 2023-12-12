@@ -2,7 +2,6 @@ import altair
 import bokeh
 import boto3
 import dask
-import dbt
 import fastparquet
 import folium
 import fsspec

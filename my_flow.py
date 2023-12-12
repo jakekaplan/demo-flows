@@ -1,11 +1,12 @@
 from prefect import flow
 from prefect.runtime import flow_run
 
+import time
 
 @flow(log_prints=True)
 def my_flow():
-    print(f"I'm in flow: {flow_run.name}")
-
+    # print(f"I'm in flow: {flow_run.name}")
+    time.sleep(120)
 
 if __name__ == '__main__':
     my_flow()

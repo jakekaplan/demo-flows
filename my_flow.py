@@ -6,8 +6,9 @@ from prefect.runtime import flow_run
 @flow(log_prints=True)
 def my_flow():
     print(f"I'm in flow: {flow_run.name}. Sleeping for 5...")
-    time.sleep(5)
+    time.sleep(120)
     print("Done!")
+
 
 if __name__ == '__main__':
     my_flow()

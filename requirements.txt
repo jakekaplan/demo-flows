@@ -16,6 +16,7 @@ pylint
 pymongo[srv]
 pytest == 7.4.3
 pytest-timeout
+pydantic >= 2.0.0
 redis
 smartsheet-python-sdk==3.0.2
 snowflake-cli-labs

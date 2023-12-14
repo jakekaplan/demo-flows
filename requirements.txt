@@ -1,1 +1,24 @@
-pandas
+gcsfs
+google-cloud-bigquery[pandas]
+jaydebeapi==1.2.3
+meteostat == 1.6.7
+numpy
+openpyxl == 3.0.9
+oracledb == 1.4.2
+pandas==2.1.4
+pandera==0.18.0
+prefect-dbt
+prefect-gcp
+prefect-snowflake
+psycopg2-binary
+pyarrow==14.0.1
+pylint
+pymongo[srv]
+pytest == 7.4.3
+pytest-timeout
+redis
+smartsheet-python-sdk==3.0.2
+snowflake-cli-labs
+snowflake-connector-python == 3.6.0
+sqlalchemy == 2.0.23
+tables

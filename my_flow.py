@@ -11,6 +11,4 @@ def my_flow():
 
 
 if __name__ == '__main__':
-    my_flow.from_source(
-
-    )
+    my_flow()

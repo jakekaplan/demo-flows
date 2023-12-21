@@ -5,6 +5,3 @@ from prefect import flow
 def my_flow():
     print("Hello from a flow!")
 
-
-if __name__ == '__main__':
-    my_flow()

@@ -6,6 +6,5 @@ import time
 def my_flow():
     print("Hello from a flow!")
 
-    for i in range(20):
-        time.sleep(10)
-        print("Slept for 10 seconds")
+    time.sleep(15)
+    print("Slept for 15 seconds")

@@ -1,5 +1,5 @@
 from prefect import flow
-import more_itertools
+import flask
 
 @flow(log_prints=True)
 def my_flow():
@@ -14,7 +14,7 @@ flow.from_source(
     work_pool_name="cloud-run-v2-push",
     job_variables={
         "env": {
-            "EXTRA_PIP_PACKAGES": "supabase more_itertools psycopg2-binary",
+            "EXTRA_PIP_PACKAGES": "flask",
         }
     }
 )

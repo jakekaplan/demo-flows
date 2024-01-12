@@ -1,10 +1,19 @@
-from prefect import flow
+from prefect import flow, task
 import sys
+
+@task
+def get_version():
+    return sys.version
+
+@task
+def print_version(version):
+    print(version)
+
 
 @flow(log_prints=True)
 def my_flow():
-    print(sys.version)
-    print("Hello world!")
+    v = get_version()
+    print_version(v)
 
 #
 # flow.from_source(

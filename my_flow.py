@@ -14,12 +14,3 @@ def print_version(version):
 def my_flow():
     v = get_version()
     print_version(v)
-
-#
-# flow.from_source(
-#     "https://github.com/jakekaplan/demo-flows.git",
-#     entrypoint="my_flow.py:my_flow"
-# ).deploy(
-#     name="modal-deploy",
-#     work_pool_name="my-modal-pool"
-# )

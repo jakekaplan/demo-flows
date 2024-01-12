@@ -1,9 +1,9 @@
 from prefect import flow
-import os
+import sys
 
 @flow(log_prints=True)
 def my_flow():
-    print(os.environ)
+    print(sys.version)
     print("Hello world!")
 
 #

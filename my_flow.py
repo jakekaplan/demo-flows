@@ -1,4 +1,5 @@
 from prefect import flow, task
+import marvin
 import sys
 
 @task
@@ -14,3 +15,4 @@ def print_version(version):
 def my_flow():
     v = get_version()
     print_version(v)
+    print(marvin.__version__)

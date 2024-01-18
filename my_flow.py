@@ -1,7 +1,5 @@
 from prefect import flow, task
-import marvin
 import sys
-import os
 
 @task
 def get_version():
@@ -14,15 +12,16 @@ def print_version(version):
 
 @flow(log_prints=True)
 def my_flow():
-    v = get_version()
-    print_version(v)
-    print(marvin.__version__)
-    print(os.environ["FOO"])
+    print("Hi from a flow!")
+    version = get_version()
+    print_version(version)
 
-# flow.from_source(
-#     source="https://github.com/jakekaplan/demo-flows.git",
-#     entrypoint="my_flow.py:my_flow",
-# ).deploy(
-#     name="my-modal-deploy",
-#     work_pool_name="my-modal-pool",
-# )
+
+if __name__ == '__main__':
+    flow.from_source(
+        source="https://github.com/jakekaplan/demo-flows.git",
+        entrypoint="my_flow.py:my_flow",
+    ).deploy(
+        name="my-modal-deploy",
+        work_pool_name="my-modal-pool",
+    )

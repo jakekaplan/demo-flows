@@ -1,17 +1,16 @@
 from prefect import flow
-from pydantic import BaseModel
-class SampleSize(BaseModel):
-    total: int | None
-    negative_class: int | None
-    positive_class: int | None
 
-
-class AnotherModel(BaseModel):
-    sample_size: SampleSize
 
 @flow
-def sample_size_flow(param: AnotherModel):
-    print(param)
-    print(param.sample_size)
+def my_flow():
+    print("Hello, world!")
 
 
+if __name__ == '__main__':
+    my_flow.from_source(
+        source="https://github.com/jakekaplan/demo-flows.git",
+        entrypoint="my_flow.py:my_flow",
+    ).deploy(
+        name="my-modal-deploy",
+        work_pool_name="modal-pool-from-cli"
+    )

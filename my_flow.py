@@ -1,9 +1,10 @@
+import sys
 from prefect import flow
 
 
 @flow
 def my_flow():
-    print("Hello, world!")
+    print(sys.version)
 
 
 if __name__ == '__main__':
@@ -12,5 +13,5 @@ if __name__ == '__main__':
         entrypoint="my_flow.py:my_flow",
     ).deploy(
         name="my-modal-deploy",
-        work_pool_name="modal-pool-from-cli"
+        work_pool_name="mex-work-pool"
     )

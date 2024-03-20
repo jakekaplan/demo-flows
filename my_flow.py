@@ -2,7 +2,7 @@ import sys
 from prefect import flow
 
 
-@flow
+@flow(log_prints=True)
 def my_flow():
     print(sys.version)
 
@@ -12,6 +12,6 @@ if __name__ == '__main__':
         source="https://github.com/jakekaplan/demo-flows.git",
         entrypoint="my_flow.py:my_flow",
     ).deploy(
-        name="my-modal-deploy",
+        name="my-mex-deploy",
         work_pool_name="mex-work-pool"
     )

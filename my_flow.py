@@ -5,7 +5,7 @@ from prefect import flow
 
 @flow(log_prints=True)
 def my_flow():
-    time.sleep(1000)
+    print("Hi!")
 
 
 if __name__ == '__main__':

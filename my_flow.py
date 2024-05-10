@@ -8,7 +8,7 @@ def hello_flow(
     limit=None,
     ref_date=None,
     force_calc=None,
-    dbt_commands: list = []
+    dbt_commands = []
 ):
     print (f"{type(user)} and {user}")
     print (f"{type(debug)} and {debug}")

@@ -1,18 +1,23 @@
-import time
-
 from prefect import flow
 
 
-@flow(log_prints=True)
-def my_flow():
-    print("Hi!")
+@flow()
+def hello_flow(
+    user=None,
+    debug=None,
+    limit=None,
+    ref_date=None,
+    force_calc=None,
+    dbt_commands=[]
+):
+    print (f"{type(user)} and {user}")
+    print (f"{type(debug)} and {debug}")
+    print (f"{type(limit)} and {limit}")
+    print (f"{type(ref_date)} and {ref_date}")
+    print (f"{type(force_calc)} and {force_calc}")
+    print (f"{type(dbt_commands)} and {dbt_commands}")
 
+    print("Hello, Prefect!")
 
-if __name__ == '__main__':
-    my_flow.from_source(
-        source="https://github.com/jakekaplan/demo-flows.git",
-        entrypoint="my_flow.py:my_flow",
-    ).deploy(
-        name="my-modal-deploy",
-        work_pool_name="my-modal-pool"
-    )
+if __name__ == "__main__":
+    hello_flow(user="user", debug="debug", limit=12345, ref_date="12345", force_calc="\"12345\"", dbt_commands=["dbt deps", "dbt run --profile-dir ."])

@@ -5,7 +5,7 @@ from prefect import flow
 @flow()
 def my_flow():
     print("Starting flow")
-    time.sleep(30)
+    time.sleep(5)
     print("All done")
 
 

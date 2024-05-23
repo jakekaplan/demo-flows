@@ -3,7 +3,7 @@ import os
 from prefect import flow
 
 
-@flow()
+@flow(log_prints=True)
 def my_flow():
     print(os.environ)
     print("Starting flow")

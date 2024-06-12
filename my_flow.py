@@ -1,6 +1,7 @@
 from prefect import flow
 
 
-@flow
-def cute_flow(might_delete_later: str):
-    print("I'm a cute flow!")
+@flow(log_prints=True)
+def my_flow():
+    print("Hello, world!")
+

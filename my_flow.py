@@ -1,4 +1,3 @@
-import prefect
 from prefect import flow
 
 
@@ -6,6 +5,3 @@ from prefect import flow
 def my_flow(payload: dict):
     print(type(payload))
     print(payload)
-
-
-my_flow()

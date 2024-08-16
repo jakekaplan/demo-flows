@@ -1,7 +1,9 @@
+import time
+import prefect
 from prefect import flow
 
 
-@flow(log_prints=True)
-def my_flow(payload: dict):
-    print(type(payload))
-    print(payload)
+@flow
+def my_flow():
+    print("Hello, world!")
+    print(prefect.__version__)

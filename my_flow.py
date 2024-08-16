@@ -1,4 +1,3 @@
-import time
 import prefect
 from prefect import flow
 

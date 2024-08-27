@@ -1,15 +1,9 @@
-import prefect
 from prefect import flow
-from pydantic import BaseModel
+
+@flow(log_prints=True)
+def my_flow():
+    print("Hello, world!")
 
 
-class MyModel(BaseModel):
-    x: int
-    y: str
-
-
-@flow
-def my_flow(my_model: MyModel):
-    print(type(my_model))
-    print(my_model)
-    print(prefect.__version__)
+if __name__ == '__main__':
+    my_flow()

@@ -1,4 +1,4 @@
-from prefect import flow, task, get_run_logger
+from prefect import flow, get_run_logger
 from prefect.runner.storage import GitRepository
 
 @flow(log_prints=True)
@@ -11,11 +11,11 @@ async def demo_flow(date: str = None):
 if __name__ == "__main__":
     demo_flow.from_source(
         source=GitRepository(
-            url="https://github.com/masonmenges/mm2-sanbox.git",
+            url="https://github.com/jakekaplan/demo-flow.git",
             branch="main"
             ),
-        entrypoint="flows/demo.py:demo_flow"
+        entrypoint="my_flow.py"
         ).deploy(
-            name="Prefect_managed_deployment_test",
-            work_pool_name="mm2-test"
+            name="modal-deployment",
+            work_pool_name="my-modal-pool"
         )

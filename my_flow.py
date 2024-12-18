@@ -3,7 +3,9 @@ from prefect.runner.storage import GitRepository
 import time
 
 @flow(log_prints=True)
-async def demo_flow():
+async def demo_flow(date: str = None):
+    logger = get_run_logger()
+    logger.info(f"Sleeping forever...")
     time.sleep(10000)
 
 if __name__ == "__main__":

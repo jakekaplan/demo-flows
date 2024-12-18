@@ -1,13 +1,16 @@
 from prefect import flow, get_run_logger
 from prefect.runner.storage import GitRepository
 import prefect
+import starlette
+import fastapi
 
 @flow(log_prints=True)
 async def demo_flow(date: str = None):
     logger = get_run_logger()
     logger.info(f"Hello World! {date}")
     logger.info(prefect.__version__)
-
+    logger.info(starlette.__version__)
+    logger.info(fastapi.__version__)
 
 
 if __name__ == "__main__":

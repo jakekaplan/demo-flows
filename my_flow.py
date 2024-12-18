@@ -1,10 +1,12 @@
 from prefect import flow, get_run_logger
 from prefect.runner.storage import GitRepository
+import prefect
 
 @flow(log_prints=True)
 async def demo_flow(date: str = None):
     logger = get_run_logger()
     logger.info(f"Hello World! {date}")
+    logger.info(prefect.__version__)
 
 
 

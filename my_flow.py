@@ -1,3 +1,4 @@
+import prefect
 from prefect import flow
 from prefect.runner.storage import GitRepository
 
@@ -5,6 +6,7 @@ from prefect.runner.storage import GitRepository
 @flow(log_prints=True)
 def demo_flow():
     print("hi!")
+    print(prefect.__version__)
 
 if __name__ == "__main__":
     demo_flow.from_source(

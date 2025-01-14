@@ -6,9 +6,7 @@ from prefect.runner.storage import GitRepository
 
 @flow(log_prints=True)
 def demo_flow():
-    print("hi!")
-    print(os.environ)
-    print(prefect.__version__)
+    raise BaseException("boooooom!")
 
 if __name__ == "__main__":
     demo_flow.from_source(
@@ -21,3 +19,4 @@ if __name__ == "__main__":
             name="coiled-deploy",
             work_pool_name="coiled-push"
         )
+

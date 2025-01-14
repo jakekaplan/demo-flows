@@ -6,9 +6,9 @@ from prefect.runner.storage import GitRepository
 
 @flow(log_prints=True)
 def demo_flow():
-    x = []
-    while True:
-        x.extend(range(10_000_000))
+    print("hi!")
+    print(os.environ)
+    print(prefect.__version__)
 
 if __name__ == "__main__":
     demo_flow.from_source(

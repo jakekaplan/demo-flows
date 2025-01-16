@@ -3,12 +3,17 @@ import prefect
 from prefect.runner.storage import GitRepository
 from prefect import flow
 from prefect.events.utilities import emit_event
+from hashlib import md5
 
 
 @flow(log_prints=True)
 def demo_flow():
     print("running prefect: ", prefect.__version__)
-    for i in range(1000):
+    for i in range(200):
+        now = time.time()
+        while now + 1 > time.time():
+            md5("a" * 1000000).hexdigest()
+
         print(1)
         emit_event(
             event="external.resource.pinged",

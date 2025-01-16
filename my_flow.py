@@ -1,5 +1,5 @@
 import time
-
+import prefect
 from prefect.runner.storage import GitRepository
 from prefect import flow
 from prefect.events.utilities import emit_event
@@ -7,6 +7,7 @@ from prefect.events.utilities import emit_event
 
 @flow(log_prints=True)
 def demo_flow():
+    print("running prefect: ", prefect.__version__)
     for i in range(100):
         print(1)
         emit_event(
@@ -24,7 +25,7 @@ if __name__ == "__main__":
         ),
         entrypoint="my_flow.py:demo_flow"
         ).deploy(
-            name="coiled-deploy",
-            work_pool_name="my-modal-pool"
+            name="event-test-deploy",
+            work_pool_name="managed-pool"
         )
 

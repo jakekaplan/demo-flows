@@ -12,7 +12,7 @@ def demo_flow():
     for i in range(200):
         now = time.time()
         while now + 1 > time.time():
-            md5("a" * 1000000).hexdigest()
+            md5(("a" * 1000000).encode()).hexdigest()
 
         print(1)
         emit_event(
@@ -22,14 +22,15 @@ def demo_flow():
 
 
 if __name__ == "__main__":
-    demo_flow.from_source(
-        source=GitRepository(
-            url="https://github.com/jakekaplan/demo-flows.git",
-            branch="main",
-        ),
-        entrypoint="my_flow.py:demo_flow"
-        ).deploy(
-            name="event-test-deploy",
-            work_pool_name="managed-pool"
-        )
+    demo_flow()
+    # demo_flow.from_source(
+    #     source=GitRepository(
+    #         url="https://github.com/jakekaplan/demo-flows.git",
+    #         branch="main",
+    #     ),
+    #     entrypoint="my_flow.py:demo_flow"
+    #     ).deploy(
+    #         name="event-test-deploy",
+    #         work_pool_name="managed-pool"
+    #     )
 

@@ -8,7 +8,7 @@ from prefect.events.utilities import emit_event
 @flow(log_prints=True)
 def demo_flow():
     print("running prefect: ", prefect.__version__)
-    for i in range(100):
+    for i in range(1000):
         print(1)
         emit_event(
             event="external.resource.pinged",

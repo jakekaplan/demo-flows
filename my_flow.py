@@ -19,7 +19,6 @@ def demo_flow():
             event="external.resource.pinged",
             resource={"prefect.resource.id": "my.external.resource"}
         )
-        time.sleep(1)
 
 
 if __name__ == "__main__":

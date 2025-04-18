@@ -39,6 +39,7 @@ def git_flow() -> None:
     branch, commit = get_git_info()
     print(f"Current branch: {branch}")
     print(f"Current commit: {commit}")
+    print("This is some new stuff!")
 
 if __name__ == '__main__':
     git_flow()

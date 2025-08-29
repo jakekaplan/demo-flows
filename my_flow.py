@@ -1,14 +1,16 @@
-
+import os
+import prefect
 from prefect import flow, task
 
 @task
 def my_task():
-    import prefect
     print(prefect.__version__)
+    for k, v in os.environ.items():
+        print(f"{k} : {v}")
+
 
 @flow(log_prints=True)
 def my_flow():
-    import prefect
     print(prefect.__version__)
     my_task()
 
